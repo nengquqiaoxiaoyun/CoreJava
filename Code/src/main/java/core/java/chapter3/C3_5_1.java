@@ -1,5 +1,7 @@
 package core.java.chapter3;
 
+import static java.lang.Math.*;
+
 import org.junit.Test;
 
 /**
@@ -14,6 +16,8 @@ public class C3_5_1 {
         int a = 99;
         boolean flag = isEve(a);
         System.out.println("是否为奇数: " + flag);
+        int i = floorMod(100, -12);
+        System.out.println(i);
     }
 
     /**
