@@ -8,6 +8,9 @@ public class C3_5_2 {
 
     public static void main(String[] args) {
 
+        int x = 1;
+        x += 3.5;
+        System.out.println(x);
         
 
     }
