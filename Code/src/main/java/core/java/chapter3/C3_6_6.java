@@ -1,7 +1,5 @@
 package core.java.chapter3;
 
-import java.util.Arrays;
-
 /**
  * @author: huakaimay
  * @since: 2020-07-23
@@ -12,7 +10,7 @@ public class C3_6_6 {
         String s = "ABC";
         System.out.println("第i个码点：");
         int index = s.offsetByCodePoints(0, 2);
-        int cp = s.codePointAt(index);
+        int cp = s.codePointAt(index);                 
         System.out.println(cp);
 
         System.out.println("字符串转为码点：");
