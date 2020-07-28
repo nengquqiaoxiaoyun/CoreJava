@@ -1,5 +1,7 @@
 package core.java.chapter3;
 
+import java.util.Arrays;
+
 /**
  * @author: huakaimay
  * @since: 2020-07-27
@@ -17,6 +19,9 @@ public class C3_10 {
         }
         ensure(arr);
         System.out.println(arr.length);
+
+        String s = Arrays.toString(arr);
+        System.out.println(s);
 
     }
 
