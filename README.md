@@ -141,3 +141,40 @@ for() {
 - 构造器可以有*0*个、*1*个或多个参数
 - 构造器没有返回值
 - 构造器总是伴随着*new*操作一起调用
+
+#### 4.3.6 封装的优点
+
+​	注意不要编写返回引用可变对象的访问器方法。
+
+```java
+class Employee {
+    private Date hireDay;
+    
+    public Date getHireDay() {
+        // bad
+        return hireDay;
+    }
+}
+```
+
+​	该类违反了这个设计原则，其中的*getHireDay*返回了一个*Date*类对象。*LocalDate*类没有更改器方法，与之不同，*Date*类有一个更改器方法*setTime*，可以在这里设置毫秒值。***Date*对象是可变的，这一点就破坏了封装性！**
+
+```java
+Employee harry =  ...;
+Date d = harr.getHireDay();
+double tenYearsInMilliSeconds = 10 * 365.25 * 24 * 60 * 60 * 1000;
+d.setTime(d.getTime() - (long) tenYearsInMilliSeconds);
+```
+
+​	***d*和*harry.hireDay*将引用同一个对象。对*d*调用更改器方法就可以自动地改变这个雇员对象的私有状态！（该雇员的*hireDay*也会随着d的改变而改变）**
+
+​	**如果需要返回一个可变对象，应该首先对它进行克隆。**
+
+```java
+class Employee {
+    public Date getHireDay() {
+        return (Date) hireDay.clone();
+    }
+}
+```
+
