@@ -1,4 +1,4 @@
-package core.java.chapter3;
+package core.java.chapter4;
 
 /**
  * @author: huakaimay
