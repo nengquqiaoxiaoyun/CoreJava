@@ -9,7 +9,11 @@ public class C4_6 {
 
     private String name;
 
-    private Integer age;
+    private static Integer age;
+
+    public static void main(String[] args) {
+        System.out.println(age);
+    }
 
 
 
