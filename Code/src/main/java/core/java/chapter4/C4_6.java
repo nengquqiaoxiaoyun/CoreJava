@@ -1,6 +1,5 @@
 package core.java.chapter4;
 
-import org.junit.Test;
 
 /**
  * @author: huakaimay
@@ -12,13 +11,8 @@ public class C4_6 {
 
     private Integer age;
 
-    public C4_6() {
-    }
 
 
-    public void test() {
-
-    }
 
 
 

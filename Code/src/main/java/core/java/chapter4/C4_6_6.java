@@ -6,7 +6,7 @@ package core.java.chapter4;
  */
 public class C4_6_6 {
 
-    private String name;
+   private String name;
 
     private Integer age;
 
@@ -15,6 +15,10 @@ public class C4_6_6 {
     }
 
     public C4_6_6() {
+
+    }
+
+    public static void test() {
 
     }
 
