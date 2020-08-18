@@ -7,11 +7,15 @@ package core.java.chapter5.abstractClasses;
 public abstract class Person {
 
 
-    public abstract void test();
+    public abstract String getDescription();
 
-    public void test2() {
+    private String name;
 
+    public Person(String name) {
+        this.name = name;
     }
 
-
+    public String getName() {
+        return name;
+    }
 }

@@ -4,12 +4,17 @@ package core.java.chapter5.abstractClasses;
  * @author: huakaimay
  * @since: 2020-08-04
  */
-public abstract class Student extends Person {
+public class Student extends Person {
 
-    abstract void shout();
+    private String major;
 
-    void dosomt() {
-
+    public Student(String name, String major) {
+        super(name);
+        this.major = major;
     }
 
+    @Override
+    public String getDescription() {
+        return "a student majoring in " + major;
+    }
 }
