@@ -1,6 +1,7 @@
 package core.java.chapter5.abstractClasses;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * @author: huakaimay
@@ -37,4 +38,25 @@ public class Employee extends Person {
         salary += raise;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Double.compare(employee.salary, salary) == 0 &&
+                Objects.equals(hireDay, employee.hireDay);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(salary, hireDay);
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getName() +
+                "{salary=" + salary +
+                ", hireDay=" + hireDay +
+                '}';
+    }
 }
