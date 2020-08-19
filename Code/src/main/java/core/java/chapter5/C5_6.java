@@ -1,5 +1,7 @@
 package core.java.chapter5;
 
+import java.lang.reflect.Field;
+
 /**
  * @author: huakaimay
  * @since: 2020-08-18
@@ -44,5 +46,7 @@ public enum C5_6 {
 
         String abbreviation = C5_6.SMALL.getAbbreviation();
         System.out.println(abbreviation);
+
+
     }
 }
