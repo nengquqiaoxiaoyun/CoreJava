@@ -1,6 +1,8 @@
 package core.java.chapter5;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author: huakaimay
@@ -20,6 +22,10 @@ public class Employee {
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getSalary() {
