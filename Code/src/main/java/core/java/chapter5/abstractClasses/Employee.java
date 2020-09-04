@@ -62,6 +62,6 @@ public class Employee extends Person implements Comparable<Employee> {
 
     @Override
     public int compareTo(Employee o) {
-        return Double.compare(salary, o.salary);
+        return Double.compare(salary, salary);
     }
 }
