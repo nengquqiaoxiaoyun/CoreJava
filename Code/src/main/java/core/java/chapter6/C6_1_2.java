@@ -8,5 +8,15 @@ public interface C6_1_2 {
 
     void a();
 
-    
+    default void c() {
+        System.out.println("sdfa");
+    }
+
+    static void b() {
+        System.out.println("123");
+    }
+
+    public static void main(String[] args) {
+        C6_1_2.b();
+    }
 }
