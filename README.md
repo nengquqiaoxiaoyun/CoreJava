@@ -483,3 +483,15 @@ Employee copy = original;
 ​	浅拷贝：使用clone方法可以使copy是一个新对象，它的初始状态与原变量相同，但是之后的状态会不同。但是原变量中的一些子对象还是会和copy后的对象共享，如果这些子对象是可变对象，那么原对象和克隆后的对象仍然会共享一些信息。
 
 ​	深拷贝：将原变量的所有可变子对象都建立克隆，这样就不会共享信息了。
+
+​	要使用*clone*必须实现*Cloneable*方法，并且重写*clone*方法，将*clone*方法改为*public*。如果是深拷贝就需要将所有的可变对象也进行*clone*。
+
+```java
+   @Override
+    public Employee clone() throws CloneNotSupportedException {
+        Employee clone = (Employee) super.clone();
+        clone.hireDay = (Date)hireDay.clone();
+        return clone;
+    }
+```
+
