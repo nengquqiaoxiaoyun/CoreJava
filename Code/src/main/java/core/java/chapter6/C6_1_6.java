@@ -8,12 +8,13 @@ public class C6_1_6 implements Named, Person{
 
     @Override
     public void getName() {
-        System.out.println("asdf");
+        Person.super.getName();
+        Named.super.getName();
     }
 
     @Override
     public void test() {
-        
+
     }
 
 }
