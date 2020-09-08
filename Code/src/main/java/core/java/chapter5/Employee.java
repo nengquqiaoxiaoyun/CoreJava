@@ -1,14 +1,13 @@
 package core.java.chapter5;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.EnumMap;
 
 /**
  * @author: huakaimay
  * @since: 2020-07-31
  */
-public class Employee {
+public class Employee implements Cloneable{
     private String name;
     private double salary;
     private LocalDate hireDay;
@@ -19,6 +18,11 @@ public class Employee {
         this.hireDay = LocalDate.of(year, month, day);
     }
 
+
+    @Override
+    public Employee clone() throws CloneNotSupportedException {
+        return (Employee)super.clone();
+    }
 
     public String getName() {
         return name;
@@ -41,5 +45,12 @@ public class Employee {
         salary += raise;
     }
 
-
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", salary=" + salary +
+                ", hireDay=" + hireDay +
+                '}';
+    }
 }
