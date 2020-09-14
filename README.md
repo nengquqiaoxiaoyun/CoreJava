@@ -484,7 +484,7 @@ Employee copy = original;
 
 ​	深拷贝：将原变量的所有可变子对象都建立克隆，这样就不会共享信息了。
 
-​	要使用*clone*必须实现*Cloneable*方法，并且重写*clone*方法，将*clone*方法改为*public*。如果是深拷贝就需要将所有的可变对象也进行*clone*。
+​	**要使用*clone*必须实现*Cloneable*方法，并且重写*clone*方法，将*clone*方法改为*public*。如果是深拷贝就需要将所有的可变对象也进行*clone*。**
 
 ```java
    @Override

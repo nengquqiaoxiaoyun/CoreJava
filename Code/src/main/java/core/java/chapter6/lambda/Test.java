@@ -39,4 +39,10 @@ public class Test {
 
 
     }
+
+    @org.junit.Test
+    public void test2() {
+        int[] arr = {1, 2, 3};
+        
+    }
 }
