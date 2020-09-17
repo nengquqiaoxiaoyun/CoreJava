@@ -1,22 +1,14 @@
 package core.java.chapter6.lambda;
 
-import core.java.chapter5.abstractClasses.Employee;
-import core.java.chapter5.abstractClasses.Person;
-import core.java.chapter5.abstractClasses.Student;
-
 import javax.swing.*;
-import java.awt.event.ActionListener;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * @author: huakaimay
  * @since: 2020-09-08
  */
-public class Test {
+public  class Test {
 
     public static void main(String[] args) {
         String[] planets = {"mery", "longdd", "donkty", "cc"};
@@ -30,9 +22,8 @@ public class Test {
         });
         System.out.println(Arrays.toString(planets));
 
-        new Timer(1000, event -> {
-            System.out.println("the time is " + LocalDateTime.now());
-        }).start();
+        Test test = new Test();
+        new Timer(1000, test::test2).start();
 
         JOptionPane.showMessageDialog(null, "quit program?");
         System.exit(0);
@@ -40,9 +31,10 @@ public class Test {
 
     }
 
+
     @org.junit.Test
-    public void test2() {
+    public void test2(ActionEvent event) {
         int[] arr = {1, 2, 3};
-        
+
     }
 }
