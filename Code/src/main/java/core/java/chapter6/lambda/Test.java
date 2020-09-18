@@ -20,6 +20,7 @@ public  class Test {
         Arrays.sort(planets, (str1, str2) -> {
             return str1.length() - str2.length();
         });
+        
         System.out.println(Arrays.toString(planets));
 
         Test test = new Test();
