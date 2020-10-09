@@ -507,3 +507,16 @@ Employee copy = original;
     }
 ```
 
+#### 6.4.1  使用内部类访问对象状态
+
+​	内部类既可以访问自身的数据域，也可以访问创建它的外围类对象的数据域。**内部类的对象总有一个隐式引用，它指向了创建它的外部类对象。这个引用在内部类中的定义是不可见的。外围类的引用在构造器中设置。编译器修改了所有的内部类的构造器，添加一个外围类引用参数。**
+
+```java
+/**
+ 这里TimerPrinter是内部类，TalkingClock是外围类
+/
+public TimePrinter(TalkingClock clock) {
+    outer = clock;
+}
+```
+
