@@ -1,5 +1,7 @@
 package core.java.chapter6.c64;
 
+import core.java.chapter6.timer.TimePrinter;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +13,8 @@ import java.time.LocalDateTime;
  * @since: 2020-10-09
  */
 public class TalkingClock {
+
+    private static int number;
 
     private int interval;
 
@@ -30,7 +34,7 @@ public class TalkingClock {
     public class TimePrinter implements ActionListener {
 
         /*
-        内部类中的静态域必须是final的
+        非静态内部类中的静态域必须是final的
          */
         public final static int b = 1;
 
@@ -49,6 +53,7 @@ public class TalkingClock {
         TalkingClock talkingClock = new TalkingClock(1000, false);
 
         TalkingClock.TimePrinter timePrinter = talkingClock.new TimePrinter();
+        TalkingClock.TimePrinter timePrinter2 = talkingClock.new TimePrinter();
 
         talkingClock.start();
 

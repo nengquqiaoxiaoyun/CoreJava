@@ -55,7 +55,7 @@ public class Person {
         List<Person> list = Arrays.asList(p1, p2, p3);
 
         Collections.sort(list, Comparator.comparing(Person::getAge).thenComparing((t1, t2) -> {
-           return t2.name.length() - t1.name.length();
+            return t2.name.length() - t1.name.length();
         }));
 
         System.out.println(list);
