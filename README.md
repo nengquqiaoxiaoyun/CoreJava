@@ -520,3 +520,10 @@ public TimePrinter(TalkingClock clock) {
 }
 ```
 
+#### 6.4.2 内部类的特殊语法规则
+
+​	**非静态内部类中声明的所有静态域都必须是*final*。**我们希望一个静态域中只有一个实例，对于每个外部对象，会分别有一个单独的内部类实例。如果这个类不是*final*，它可能就不是唯一的。
+
+​	非静态内部类对于外部类有一个隐式的引用，所以非静态内部类不能有*static*方法。（编译时外部类会被编译成*this$0*）
+
+​	https://stackoverflow.com/questions/975134/why-cant-we-have-static-method-in-a-non-static-inner-class
