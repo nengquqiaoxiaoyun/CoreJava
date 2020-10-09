@@ -7,4 +7,5 @@ package core.java.chapter6.c616;
 public interface BaseInter extends SuperInter {
 
     void getName();
+
 }
