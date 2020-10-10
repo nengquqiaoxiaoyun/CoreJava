@@ -253,7 +253,7 @@ public Employee(double s) {
 
 ​	**基本跟构造函数一个功能，但比构造函数先执行。**最常见的用法应该还是**代码复用**，即多个重载构造函数都有若干段相同的代码，那么可以把这些重复的代码拉出来放到初始化块中，但仍然要注意它的执行顺序，对顺序有严格要求的初始化代码就不适合使用了。
 
-​	下面是调用构造器的具体处理步骤：
+​	下面是调用**构造器**的具体处理步骤：
 
 1. 所有数据域被初始化为默认值
 2. 按照在类中申明中出现的次序，**依次执行所有域初始化语句和初始化块**
@@ -527,3 +527,5 @@ public TimePrinter(TalkingClock clock) {
 ​	**非静态内部类对于外部类有一个隐式的引用，所以非静态内部类不能有*static*方法。（编译时外部类会被编译成*this$0*）对于静态域来讲，所有的对象共享来自不同对象的静态对象这是违反直觉的。**
 
 ​	[why-cant-we-have-static-method-in-a-non-static-inner-class](https://stackoverflow.com/questions/975134/why-cant-we-have-static-method-in-a-non-static-inner-class)
+
+> ​    As with instance methods and variables, an inner class is associated with an instance of its enclosing class and has direct access to that object's methods and fields. Also, because an inner class is associated with an instance, it cannot define any static members itself.
