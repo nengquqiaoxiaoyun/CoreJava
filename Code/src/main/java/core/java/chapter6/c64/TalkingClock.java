@@ -31,14 +31,34 @@ public class TalkingClock {
         timer.start();
     }
 
-    public class TimePrinter implements ActionListener {
 
+    /**
+     * 局部内部类
+     */
+    public void start2() {
         /*
-        非静态内部类中的静态域必须是final的
+        局部内部类 作用域被限定在这个局部类中的块中
+        除该方法外，没有任何方法知道该内的存在
          */
-        public final static int b = 1;
+        class TimePrinter implements ActionListener {
 
-        public void actionPerformed(ActionEvent e) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("At the tone, the time is " + LocalDateTime.now());
+                /*
+                 * TalkingClock.this.beep
+                 */
+                if (beep) {
+                    Toolkit.getDefaultToolkit().beep();
+                }
+            }
+        }
+
+
+        /**
+         * with lambda
+         */
+        ActionListener timePrinter = (e) -> {
             System.out.println("At the tone, the time is " + LocalDateTime.now());
             /*
              * TalkingClock.this.beep
@@ -46,16 +66,37 @@ public class TalkingClock {
             if (beep) {
                 Toolkit.getDefaultToolkit().beep();
             }
-        }
+        };
+        TimePrinter timePrinter1 = new TimePrinter();
+        // lambda
+        Timer t = new Timer(interval, timePrinter);
+        // 局部内部类
+        Timer t2 = new Timer(interval, timePrinter1);
+        t.start();
     }
+
+//    public class TimePrinter implements ActionListener {
+//
+//        /*
+//        非静态内部类中的静态域必须是final的
+//         */
+//        public final static int b = 1;
+//
+//        public void actionPerformed(ActionEvent e) {
+//            System.out.println("At the tone, the time is " + LocalDateTime.now());
+//            /*
+//             * TalkingClock.this.beep
+//             */
+//            if (beep) {
+//                Toolkit.getDefaultToolkit().beep();
+//            }
+//        }
+//    }
 
     public static void main(String[] args) {
         TalkingClock talkingClock = new TalkingClock(1000, false);
 
-        TalkingClock.TimePrinter timePrinter = talkingClock.new TimePrinter();
-        TalkingClock.TimePrinter timePrinter2 = talkingClock.new TimePrinter();
-
-        talkingClock.start();
+        talkingClock.start2();
 
         JOptionPane.showMessageDialog(null, "Quit program?");
         System.exit(0);
