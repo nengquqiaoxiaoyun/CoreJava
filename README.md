@@ -526,6 +526,15 @@ public TimePrinter(TalkingClock clock) {
 
 ​	**非静态内部类对于外部类有一个隐式的引用，所以非静态内部类不能有*static*方法。（编译时外部类会被编译成*this$0*）对于静态域来讲，所有的对象共享来自不同对象的静态对象这是违反直觉的。**
 
-​	[why-cant-we-have-static-method-in-a-non-static-inner-class](https://stackoverflow.com/questions/975134/why-cant-we-have-static-method-in-a-non-static-inner-class)
+​	[*why-cant-we-have-static-method-in-a-non-static-inner-class*](https://stackoverflow.com/questions/975134/why-cant-we-have-static-method-in-a-non-static-inner-class)
 
-> ​    As with instance methods and variables, an inner class is associated with an instance of its enclosing class and has direct access to that object's methods and fields. Also, because an inner class is associated with an instance, it cannot define any static members itself.
+#### 6.4.3 内部类是否有用、必要和安全
+
+​	**内部类是一种编译现象，与虚拟机无关**
+
+​	编译器为了引用外围类，生成了一个附加的实例域*this$0*（名字是编译器合成的，自己的代码中不能引用它）
+
+> ​    *As with instance methods and variables, an inner class is associated with an instance of its enclosing class and has direct access to that object's methods and fields. Also, because an inner class is associated with an instance, it cannot define any static members itself.*
+
+​	由于内部类拥有访问特权，所以与常规类比较起来功能更加强大
+
