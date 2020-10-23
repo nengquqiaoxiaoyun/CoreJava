@@ -1,5 +1,7 @@
 package core.java.chapter6.c646;
 
+import java.util.Objects;
+
 /**
  * @author: huakaimay
  * @since: 2020-10-23
@@ -21,4 +23,5 @@ public class Super {
 
         };
     }
+
 }
