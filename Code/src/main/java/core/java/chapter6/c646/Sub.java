@@ -1,5 +1,7 @@
 package core.java.chapter6.c646;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 
 /**
@@ -23,7 +25,10 @@ public class Sub extends Super {
                 add("Mary");
             }
         });
+
     }
+
+
 
     private static void invite(ArrayList<String> strings) {
 
