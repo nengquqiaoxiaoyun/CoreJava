@@ -75,23 +75,23 @@ public class TalkingClock {
         t.start();
     }
 
-//    public class TimePrinter implements ActionListener {
-//
-//        /*
-//        非静态内部类中的静态域必须是final的
-//         */
-//        public final static int b = 1;
-//
-//        public void actionPerformed(ActionEvent e) {
-//            System.out.println("At the tone, the time is " + LocalDateTime.now());
-//            /*
-//             * TalkingClock.this.beep
-//             */
-//            if (beep) {
-//                Toolkit.getDefaultToolkit().beep();
-//            }
-//        }
-//    }
+    public class TimePrinter implements ActionListener {
+
+        /*
+        非静态内部类中的静态域必须是final的
+         */
+        public final static int b = 1;
+
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("At the tone, the time is " + LocalDateTime.now());
+            /*
+             * TalkingClock.this.beep
+             */
+            if (beep) {
+                Toolkit.getDefaultToolkit().beep();
+            }
+        }
+    }
 
     public static void main(String[] args) {
         TalkingClock talkingClock = new TalkingClock(1000, false);

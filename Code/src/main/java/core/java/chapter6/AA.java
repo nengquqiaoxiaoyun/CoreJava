@@ -1,5 +1,7 @@
 package core.java.chapter6;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 
 /**
@@ -7,6 +9,12 @@ import java.util.Arrays;
  * @since: 2020-08-24
  */
 public class AA {
+    @Test
+    public void ss() {
+        System.out.println((2&1) == 1);
+    }
+
+
     public static void main(String[] args) {
         int fib = fib(30);
         System.out.println(fib);
