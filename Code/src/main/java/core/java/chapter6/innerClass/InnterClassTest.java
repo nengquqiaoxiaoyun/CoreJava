@@ -1,6 +1,5 @@
 package core.java.chapter6.innerClass;
 
-import javax.security.auth.login.AccountLockedException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -24,7 +23,7 @@ public class InnterClassTest {
 
 class TalkingClock {
     private int interval;
-    private boolean beep;
+     private boolean beep;
 
     public TalkingClock(int interval, boolean beep) {
         this.interval = interval;
