@@ -429,7 +429,7 @@ staff[0] = new Employee(...);
 
 ​	**装箱和拆箱是*编译器*认可的，而不是*虚拟机*。 **编译器在生成类的字节码时，插入必要的方法调用。虚拟机只是执行这些字节码。
 
-#### 5.7 反射
+### 5.7 反射
 
 ```java
 e.getClass().newInstance();
@@ -439,7 +439,27 @@ e.getClass().newInstance();
 
 ​	**在程序运行期间，*Java*运行时系统始终为所有的对象维护一个被称为运行时的类型标识。这个信息跟踪着每个对象所属的类。虚拟机利用运行时类型信息选择相应的方法执行。**
 
-#### 5.8 继承的设计技巧
+#### 5.7.5 使用反射编写泛型数组代码
+
+​	一个一开始就是*Object[ ]*的数组，永远不能转换为对象数组。
+
+```java
+private static Object goodCopyOf(Object a, int newLength) {
+    Class cl = a.getClass();
+    if (!cl.isArray()) {
+        return null;
+    }
+    Class componentType = cl.getComponentType();
+    int length = Array.getLength(a);
+    Object newArray = Array.newInstance(componentType, newLength);
+    System.arraycopy(a, 0, newArray, 0, Math.min(length, newLength));
+    return newArray;
+}
+```
+
+这个方法可以扩展任意类型的数组，而不仅是对象数组。
+
+### 5.8 继承的设计技巧
 
 1. 将公共操作和域放在超类
 
