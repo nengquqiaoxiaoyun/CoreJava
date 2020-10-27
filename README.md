@@ -710,3 +710,5 @@ public final class $Proxy0 extends Proxy implements IBuyService {
     }
 }
 ```
+
+## 第七章 异常、断言和日志
