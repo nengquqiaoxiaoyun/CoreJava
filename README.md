@@ -595,3 +595,4 @@ public TimePrinter(TalkingClock clock) {
 ​	**与常规内部类不同，静态内部类可以有静态域和方法。**
 
 ​	**声明在接口中的内部类自动成为*static*和*public*类。**
+
