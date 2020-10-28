@@ -816,3 +816,5 @@ try(Scanner in = new Scanner(new FileInputStream("/usr/share/dict/words"), "UTF-
 ​	无论何时*in*和*out*都会关闭。如果使用常规的方式，就需要两个嵌套的*try/finally*语句。
 
 ​	带资源的try语句也可以有*catch*子句和*finally*子句。这些子句将会在资源关闭后执行，在实际中，一个*try*语句中加入这么多内容不是个好主意。
+
+## 第八章 泛型程序设计
