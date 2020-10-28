@@ -608,7 +608,7 @@ public TimePrinter(TalkingClock clock) {
 
 ​	代理类一定是*public*和*final*。
 
-​	动态代理其实就是代理对象调用目标对象的同名方法，并在调用前后加增强代码。
+​	动态代理其实就是代理对象调用目标对象的同名方法，并在调用前后增强代码。
 
 - 为什么 *JDK* 动态代理要**基于接口实现**？而不是基于继承来实现？
 
@@ -731,4 +731,4 @@ public final class $Proxy0 extends Proxy implements IBuyService {
 
 #### 7.1.2 声明受查异常
 
-​	不需要声明*Java*的内部错误，即从*Error*继承的错误。同样，也不应该声明从*RuntimeException*继承的哪些非受查异常。
+​	不需要声明*Java*的内部错误，即从*Error*继承的错误。同样，也不应该声明从*RuntimeException*继承的那些非受查异常。
