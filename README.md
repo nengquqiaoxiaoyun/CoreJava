@@ -732,3 +732,87 @@ public final class $Proxy0 extends Proxy implements IBuyService {
 #### 7.1.2 声明受查异常
 
 ​	不需要声明*Java*的内部错误，即从*Error*继承的错误。同样，也不应该声明从*RuntimeException*继承的那些非受查异常。
+
+#### 7.2.4 *finally*子句
+
+​	当代码抛出一个异常时，就会终止方法中剩余代码的处理，并退出这个方法的执行。当发生异常时，恰当地关闭所有资源是非常重要的。
+
+​	不管是否有异常被捕获，*finally*子句中的代码都被执行。
+
+​	解耦合*try/catch*和*try/finally*语句块，这样可以提高代码的清晰度。
+
+```java
+InputStream in = ...;
+ /*
+   外层try语句块：确保报告出现的错误
+  */
+try {
+    /*
+    内层try语句块：确保关闭输入流
+    */
+    try{
+        // code that might throw exceptions
+    } finally {
+        in.close();
+    }
+} catch(IOException e) {
+    // show error message
+}
+```
+
+​	如果*finally*语句块中也有*return*语句，这个返回值将会覆盖原始的返回值。
+
+​	执行*finally*语句块，并调用*close*方法。而*close*方法本身也有可能抛出*IOException*异常。当出现这种情况时，原始的异常将会丢失，转而抛出*close*方法的异常。这样会有问题，因为第一个异常很有可能更有意思（我们想看到的）。如果想要做适当的处理，重新抛出原来的异常，代码会变得极其繁琐。
+
+```java
+InputStream in = ...;
+Exception ex = null;
+try
+{
+    try
+    {
+        // code that might throw exceptions
+    }
+    catch(Exception e)
+    {
+        ex = e;
+        throw e;
+    }
+}
+finally
+{
+    try
+    {
+        in.close();
+    }
+    catch (Exception e)
+    {
+        if(ex == null) throw e;
+    }
+}
+```
+
+#### 7.2.5 带资源的*try*语句
+
+​	假设资源属于一个实现了*AutoCloseable*接口的类，那么就可以使用带资源的*try*语句。（还有一个*Closeable*接口，这是*AutoCloseable*的子接口，也包含一个*close*方法，这个方法声明为抛出一个*IOException*）
+
+```java
+try(Resource rs) {
+    work with res
+}
+```
+
+​	这个块正常退出或者发生异常时，会自动调用*res.close()*方法，就好像是用了*finally*块一样。还可以同时指定多个资源
+
+```java
+try(Scanner in = new Scanner(new FileInputStream("/usr/share/dict/words"), "UTF-8");
+   PrintWriter out = new PrintWriter("out.txt")) {
+    while(in.hasNext()) {
+        out.println(in.next().toUpperCase());
+    }
+}
+```
+
+​	无论何时*in*和*out*都会关闭。如果使用常规的方式，就需要两个嵌套的*try/finally*语句。
+
+​	带资源的try语句也可以有*catch*子句和*finally*子句。这些子句将会在资源关闭后执行，在实际中，一个*try*语句中加入这么多内容不是个好主意。
