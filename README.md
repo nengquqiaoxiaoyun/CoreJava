@@ -890,3 +890,30 @@ public class Interval implements Serializable {
    ​	*getClass*方法总是返回原始类型
 
 3. 不能实例化参数类型的数组
+
+   ​	如果需要收集参数化类型对象，只有一种安全而有效地方法：使用*ArrayList：ArrayList<Pair\<String\>>*
+
+4. 不能实例化类型变量
+
+5. 不能构造泛型数组
+
+6. 泛型类的静态上下文中类型变量无效
+
+   ​	不能再静态域或方法中引用类型变量
+
+7. 不能抛出或捕获泛型类的实例
+
+   ​	既不能抛出也不能捕获泛型类对象。甚至泛型类继承*Throwable*都是不合法的。*catch*子句中不能使用类型变量。
+
+   不过可以在限定类型时是合理的：
+
+```java
+public <T extends Throwable> void test(T t) throws T {
+    try {
+
+    } catch (Throwable tt) {
+     	 t.initCause(tt);
+         throw t;
+    }
+}
+```
