@@ -848,3 +848,26 @@ public static <T extends Comparable> T min(T[] a) {
 T extends Comparable & Serializable
 ```
 
+### 8.5 泛型代码和虚拟机
+
+​	**虚拟机没有泛型类型对象—所有对象都属于普通类**
+
+#### 8.5.1 类型擦除
+
+​	无论何时定义一个泛型类型，都自动提供了一个相应的原始类型。**在泛型类被类型擦除的时候，如果没有限定类型变量，则会被替换为*Object*。如果指定了类型变量，则替换为第一个限定的类型变量。**
+
+```java
+public class Interval<T extends Comparable & Serializable> implements Serializable {
+   private T lower; 
+}
+```
+
+替换后的原始类型为：
+
+```java
+public class Interval implements Serializable {
+    private Comparable lower;
+}
+```
+
+​	当然可以切换限定类型的位置，为了提高效率，应该将没有方法的接口（标签接口）放在后面。
