@@ -721,8 +721,6 @@ public final class $Proxy0 extends Proxy implements IBuyService {
 
 ​	异常对象都是派生于*Throwable*类的一个实例（继承自*Throwable*）。
 
-
-
 ![7-1](assets/up-345b8c9ca5941c917d742a61b366f11470f.png)
 
 **如果出现*RuntimeException*异常，那么就一定是你的问题。**
@@ -922,7 +920,4 @@ public <T extends Throwable> void test(T t) throws T {
 
 ​	无论*S*与*T*有什么联系，通常，*Pair\<S\>*与*Pair\<T\>*没有什么联系。
 
-​	泛型类可以继承或实现其他的泛型类。这意味着一个*ArrayList\<Manage\>*可以被转换为一个*List\<Manager\>*
-
-![8-2](assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l6cGJyaWdodA==,size_16,color_FFFFFF,t_70.png)
-
+​	泛型类可以继承或实现其他的泛型类。这意味着一个*ArrayList\<Manage\>*可以被转换为一个*List\<Manager\>*![8-2](assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l6cGJyaWdodA==,size_16,color_FFFFFF,t_70.png)
