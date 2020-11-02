@@ -934,10 +934,38 @@ public <T extends Throwable> void test(T t) throws T {
 
 #### 8.8.2 通配符的超类型限定
 
-​	**带有超类型限定符的通配符可以传递指定类型的父类和子类以及*Object*。**
+​	**带有超类型限定符的通配符可以传递指定类型的子类和它自己本身**
 
 ​	带有**子类型限定**的通配符*（? extends className）*可以从泛型对象**读取**数据，但是**不能写入**数据，因为不能确定具体的类型。带有**超类型限定**的通配符可以向泛型对象**写入**数据，但是**不能读取**数据，因为不能确定取出来的具体类型（可能是*Object*或者是其他的类，*Object*不能强转为子类）。
 
 #### 8.8.3 无限定通配符
 
 ​	泛型通配符*?* 代表任意泛型，那么这个容器什么泛型都有可能。所以只能以*Object*的形式取出来，并且不能存入对象， 因为不知道具体是什么泛型的容器。
+
+#### 上边界通配符 *extends*
+
+​	***extends*小结**
+
+- *List<? extends Human>*指向：只能指向子类型*List*，比如*List\<Chinese\>*，*Human*是最上边的类
+- *List<? extends Human>*取出：接上一条限制，不论指向什么*List*元素必然是*Human*及其子类型，按*Human*转
+- *List<? extends Human>*存入：简单泛型要是能解决早解决了，还轮得到我？直接禁止存入，溜了溜了
+
+#### 下边界通配符 *super*
+
+​	***super*小结**
+
+- *List<? super Human>*接收：只能指向父类型*List*，比如*List\<Creature\>、List\<Primate\>*
+- *List<? super Human>*取出：只能转*Object*
+- *List<? super Human>*存入：只能存*Human*及其子类型元素
+
+#### 无界通配符
+
+- 存：禁止存入
+
+- 取：只能是*Object*
+
+#### *PECS(Producer Extends Consumer Super)*
+
+- 频繁往外读取内容的，适合用*<? extends T>：extends*返回值稍微精确些
+- 经常往里插入的，适合用*<? super T>：super*允许存入子类型元素
+
