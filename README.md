@@ -800,7 +800,7 @@ try(Resource rs) {
 }
 ```
 
-​	这个块正常退出或者发生异常时，会自动调用*res.close()*方法，就好像是用了*finally*块一样。还可以同时指定多个资源
+​	**这个块正常退出或者发生异常时，会自动调用*res.close()*方法，就好像是用了*finally*块一样。**还可以同时指定多个资源
 
 ```java
 try(Scanner in = new Scanner(new FileInputStream("/usr/share/dict/words"), "UTF-8");
