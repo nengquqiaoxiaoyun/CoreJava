@@ -921,3 +921,16 @@ public <T extends Throwable> void test(T t) throws T {
 ​	无论*S*与*T*有什么联系，通常，*Pair\<S\>*与*Pair\<T\>*没有什么联系。
 
 ​	泛型类可以继承或实现其他的泛型类。这意味着一个*ArrayList\<Manage\>*可以被转换为一个*List\<Manager\>*![8-2](assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l6cGJyaWdodA==,size_16,color_FFFFFF,t_70.png)
+
+### 8.8 通配符类型
+
+#### 8.8.2 通配符的超类型限定
+
+​	**带有超类型限定符的通配符可以传递指定类型的父类和子类以及*Object*。**
+
+​	带有**子类型限定**的通配符*（? extends className）*可以从泛型对象**读取**数据，但是**不能写入**数据，因为不能确定具体的类型。带有**超类型限定**的通配符可以向泛型对象**写入**数据，但是**不能读取**数据，因为泛型有可能是*Object*，*Object*强转成其他类会失败。
+
+#### 8.8.3 无限定通配符
+
+​	泛型通配符*?* 代表任意泛型，那么这个容器什么泛型都有可能。所以只能以*Object*的形式取出来，并且不能存入对象， 因为不知道具体是什么泛型的容器。
+
