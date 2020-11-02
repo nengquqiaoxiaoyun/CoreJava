@@ -26,5 +26,9 @@ public class GenericTest {
         System.out.println(list);
 
 
+        Object g = new Object();
+        GenericTest a = (GenericTest)g;
+        System.out.println(a);
+
     }
 }
