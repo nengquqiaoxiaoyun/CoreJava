@@ -2,11 +2,10 @@ package core.java.chapter9.c913;
 
 import core.java.chapter5.Employee;
 import core.java.chapter5.Manager;
+import org.junit.Test;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author: huakaimay
@@ -29,4 +28,20 @@ public class CollectionTest{
 
 
     }
+
+
+    @Test
+    public void test() {
+        ArrayList<? super Comparable> a = new ArrayList<Object>();
+        a.add("str");
+        a.add(123);
+        ListIterator<? super Comparable> listIterator = a.listIterator(1);
+        Comparable object = (Comparable)a.get(0);
+        System.out.println(object);
+        Object next = listIterator.next();
+        System.out.println(next);
+
+
+    }
+
 }
