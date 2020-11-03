@@ -948,7 +948,7 @@ public <T extends Throwable> void test(T t) throws T {
 
 - *List<? extends Human>*指向：只能指向子类型*List*，比如*List\<Chinese\>*，*Human*是最上边的类
 - *List<? extends Human>*取出：接上一条限制，不论指向什么*List*元素必然是*Human*及其子类型，按*Human*转
-- *List<? extends Human>*存入：简单泛型要是能解决早解决了，还轮得到我？直接禁止存入，溜了溜了
+- *List<? extends Human>*存入：禁止存入
 
 #### 下边界通配符 *super*
 
