@@ -968,4 +968,3 @@ public <T extends Throwable> void test(T t) throws T {
 
 - 频繁往外读取内容的，适合用*<? extends T>：extends*返回值稍微精确些
 - 经常往里插入的，适合用*<? super T>：super*允许存入子类型元素
-
